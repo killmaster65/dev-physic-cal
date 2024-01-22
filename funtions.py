@@ -27,12 +27,8 @@ def getdisBySpeedTime():
 
 def gettimeByDisSpeed():
   global time
-  distance = input("what is the total distance?: ")
-  distance = float(distance)
-  print("  ")
-  speed = input("what is the speed?: ")
-  speed = float(speed)
-  print("  ")
+  global answer
+  
   time = distance/speed
-  print("the time is: ",time)
-  print("  ")
+  answerTime = time
+  
