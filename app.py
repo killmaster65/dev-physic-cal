@@ -11,28 +11,29 @@ def hello_world():
 @app.route('/speedPage')
 def speedPage():
     return render_template('speedPage.html')
-from flask import Flask, request, render_template
 
 
-@app.route('/speedPage', methods=['get'])
+@app.route('/speedPage', methods=['POST'])
 def my_form_post():
-    try:
-        speed = request.form['speedInt']
-        time = request.form['timeInt']
-        distance = request.form['distInt']
+    #try:
+        speed = float(request.form['speedInt'])
+        time = float(request.form['timeInt'])
+        distance = float(request.form['distInt'])
+     
         if time == 0:
+            print("works")
             answerTime = 0
             gettimeByDisSpeed(speed,time,distance)
-            return render_template("speedPage.html", answerTime = answerTime)
-        elif speed == 0:
+            return render_template("result.html", answerTime = answerTime)
+        # elif speed == 0:
 
-            getspeedByTimeDis()
+        #     getspeedByTimeDis()
             
-        elif distance == 0:
-            getdisBySpeedTime()
+        # elif distance == 0:
+        #     getdisBySpeedTime()
            
-    except ValueError:
-        print("please provide all number posible.")
+#except ValueError:
+ #       print("please provide all number posible.")
     
 
 
