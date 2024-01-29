@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 from funtions import getdisBySpeedTime, getspeedByTimeDis, gettimeByDisSpeed
 
@@ -17,12 +17,12 @@ from flask import Flask, request, render_template
 @app.route('/speedPage', methods=['get'])
 def my_form_post():
     try:
-        speed = request.form['speed']
-        time = request.form['time']
-        distance = request.form['distance']
+        speed = request.form['speedInt']
+        time = request.form['timeInt']
+        distance = request.form['distInt']
         if time == 0:
             answerTime = 0
-            gettimeByDisSpeed()
+            gettimeByDisSpeed(speed,time,distance)
             return render_template("speedPage.html", answerTime = answerTime)
         elif speed == 0:
 

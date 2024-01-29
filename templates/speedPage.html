@@ -6,17 +6,18 @@
     <title>Input Form</title>
 </head>
 <body>
-    <h4>If the varible is unknown please put a zero in the textbox</h4>
+    <h4>If the variable is unknown please put a zero in the textbox</h4>
     <form id="inputForm" method="get">
         <label for="speedtext">Enter speed:</label>
         <input type="text" id="speed" name="speedInt" required> <br>
-        <label for="speedtext">Enter time: </label>
+        <label for="timetext">Enter time: </label>
         <input type="text" id="time" name="timeInt" required><br>
-        <label for="speedtext">Enter Distance: </label>
+        <label for="distext">Enter Distance: </label>
         <input type="text" id="distance" name="distInt" required><br>
         <button type="submit">Solution</button>
+        <h3>results: {{answerTime}}</h3>
     </form>
-    <h3>results: {{answerTime}}</h3>
+    
     <text></text>
 </body>
 </html>
