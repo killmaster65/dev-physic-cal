@@ -26,7 +26,7 @@ def getdisBySpeedTime():
   print("the distance is: ",distance)
 
 def gettimeByDisSpeed(time,speed,distance):
-  answerTime = 0
+  global answerTime
   time = distance/speed
   answerTime =+ time
-  
+  return answerTime

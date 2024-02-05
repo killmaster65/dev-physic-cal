@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 
+
 from funtions import getdisBySpeedTime, getspeedByTimeDis, gettimeByDisSpeed
 
 app = Flask(__name__)
@@ -22,17 +23,16 @@ def my_form_post():
         distance = request.form['distInt']
         speed = float(speed)
         time = float(time)
-        distance = (distance)
-        if time == 0:
-            
-            
-            gettimeByDisSpeed(speed,time,distance)
+        distance = float(distance)
+        if time == 0.0:
+            gettimeByDisSpeed(time, speed, distance)
+            from funtions import answerTime
             return render_template("result.html", answerTime = answerTime)
-        elif speed == 0:
+        elif speed == 0.0:
 
             getspeedByTimeDis()
             
-        elif distance == 0:
+        elif distance == 0.0:
             getdisBySpeedTime()
            
     except ValueError:
