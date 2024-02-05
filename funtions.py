@@ -25,10 +25,8 @@ def getdisBySpeedTime():
   distance = speed*time
   print("the distance is: ",distance)
 
-def gettimeByDisSpeed():
-  global time
-  global answer
-  
+def gettimeByDisSpeed(time,speed,distance):
+  answerTime = 0
   time = distance/speed
-  answerTime = time
+  answerTime =+ time
   
