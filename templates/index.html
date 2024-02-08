@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head> 
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     </head>
+    
     <title>
-        Physics calculator
-    </title>
-    <h1>
         Calculator
-    </h1>
+    </title>
+    <body></body>
     
-    
-    <a class = "mainButtonGroup" href="{{ url_for('speedPage') }}">Speed = Distance/Time</a> 
+    Physics Calculator
+    <br>
+    <a class = "mainButtonGroup" href="{{ url_for('speedPage') }}">Speed or Distance or Time</a> 
 
-    
+    </body>
 </html> 

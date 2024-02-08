@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 
 
-from funtions import getdisBySpeedTime, getspeedByTimeDis, gettimeByDisSpeed
+from functions import getdisBySpeedTime, getspeedByTimeDis, gettimeByDisSpeed
 
 app = Flask(__name__)
 
@@ -12,8 +12,19 @@ def hello_world():
 @app.route('/speedPage')
 def speedPage():
     return render_template('speedPage.html')
-from flask import Flask, request, render_template
 
+
+@app.route('/disPage')
+def disPage():
+    return render_template('disPage.html')
+
+@app.route('/speedResult')
+def speedResult():
+    return render_template('speedResult.html')
+
+@app.route('/disResult')
+def disResult():
+    return render_template('disResult.html')
 
 @app.route('/speedPage', methods=['post'])
 def my_form_post():
@@ -26,15 +37,29 @@ def my_form_post():
         distance = float(distance)
         if time == 0.0:
             gettimeByDisSpeed(time, speed, distance)
-            from funtions import answerTime
-            return render_template("result.html", answerTime = answerTime)
+            from functions import answerTime
+            
+            return render_template("speedResult.html", answerTime = answerTime, 
+                                   time = answerTime,
+                                   distance = distance,
+                                   speed = speed)
         elif speed == 0.0:
 
-            getspeedByTimeDis()
+            getspeedByTimeDis(time, speed, distance)
+            from functions import answerSp
+            return render_template("timeResult.html", answerSp = answerSp,
+                                   speed = answerSp,
+                                   distance = distance,
+                                   time = time)
+           
             
         elif distance == 0.0:
-            getdisBySpeedTime()
-           
+            getdisBySpeedTime(time, speed, distance)
+            from functions import answerDis
+            return render_template("disPage.html", answerDis = answerDis,
+                                   time = time,
+                                   speed = speed,
+                                   distance = answerDis)
     except ValueError:
         print("please provide all number posible.")
     

@@ -5,6 +5,10 @@ body {
         sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    font-size: 50px;
+    color: black;
+    text-decoration: none;
 }
 
 code {
@@ -42,4 +46,16 @@ code {
 
 .small {
     font-size: 0.75rem;
+}
+.mainButtonGroup {
+    font-size: 40px;
+    color: black;
+    text-decoration: none;
+}
+input {
+    width: 20%;
+    height: 20%;
+  }
+.textSP {
+    font-size: 30px;
 }
