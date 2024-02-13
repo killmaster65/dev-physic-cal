@@ -21,3 +21,9 @@ def gettimeByDisSpeed(time,speed,distance):
   time = distance/speed
   answerTime =+ time
   return answerTime
+
+def kineticEnergy(mass,velocity):
+  global keAnswer
+  global kjAnswer
+  keAnswer = (mass*(velocity**2))/2
+  kjAnswer = keAnswer/1000
