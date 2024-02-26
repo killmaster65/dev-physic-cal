@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    </head>
+
+    <body>
+        <h4>If the variable is unknown please put a zero in the textbox</h4>
+        
+        <form id="inputForm" method="post">
+            <label for="mass">Enter Mass:</label>
+            <input type="text" id="mass" name="massInt" required> <br>
+            <label for="height">Enter height: </label>
+            <input type="text" id="height" name="heightInt" required><br>
+            <label for="gravity">Enter gravity: </label>
+            <input type="text" id="gravity" name="gravityInt" required><br>
+            <label for="getext">Enter Gravitational Energy: </label>
+            <input type="text" id="ge" name="geInt" required><br>
+            <button type="submit">Solution</button>
+            
+        </form>
+    </body>
+
+</html>

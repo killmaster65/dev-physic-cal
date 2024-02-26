@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head> 
-        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-    </head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">    </head>
     
     <title>
         Calculator
@@ -11,7 +12,14 @@
     
     Physics Calculator
     <br>
-    <a class = "mainButtonGroup" href="{{ url_for('speedPage') }}">Speed or Distance or Time</a> 
+    <! -- row one of buttons -->
+    <a class = "mainButtonGroup" href="{{ url_for('speedPage') }}">Speed</a> 
+    <a class = "mainButtonGroup" href="{{ url_for('speedPage') }}">Distance</a> 
+    <a class = "mainButtonGroup" href="{{ url_for('speedPage') }}">Time</a> 
+    <a class = "mainButtonGroup" href="{{ url_for('kePage') }}">Kinetic Energy</a>
+    <a class = "mainButtonGroup" href="{{ url_for('vPage') }}">Velocity</a> 
+    <br>
+    <a class = "mainButtonGroup" href="{{ url_for('gePage') }}">Gravitational Energy</a> 
 
     </body>
 </html> 
