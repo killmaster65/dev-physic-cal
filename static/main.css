@@ -53,6 +53,7 @@ code {
     border-color: black;
     border:solid;
     border-radius: 12px;
+    margin: 10px;
 }
 input {
     width: 20%;

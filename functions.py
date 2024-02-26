@@ -33,5 +33,14 @@ def massByKEV(mass,kineticEnergy,velocity):
   massA = 2*(kineticEnergy/velocity**2)
 
 def velocityByKEM(mass,kineticEnergy):
+
   global velocityA
   velocityA =  math.sqrt(kineticEnergy*2/mass)
+
+def massbyGE(mass, ge, height, gravity):
+  global massA
+  massA = ge/(height*gravity)
+
+def heightByGE(mass, ge , gravity):
+  global heightA
+  heightA = ge/(mass*gravity)

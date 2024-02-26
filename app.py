@@ -2,15 +2,21 @@ from flask import Flask, render_template, request
 
 
 from functions import getdisBySpeedTime, getspeedByTimeDis, gettimeByDisSpeed,massByKEV, velocityByKEM, kineticEnergyByMV
-
+from functions import massbyGE, heightByGE
 
 app = Flask(__name__)
 @app.route('/kePage')
 def kePage():
      return render_template("kePage.html")
+@app.route('/gePage')
+def gePage():
+     return render_template("gePage.html")
 @app.route("/massResult")
 def massResult():
     return render_template("massResult.html")
+@app.route("/vPage")
+def vPage():
+    return render_template("vPage.html")
 
 @app.route('/keResult')
 def keResult():
@@ -109,3 +115,34 @@ def keForm():
                                     mass = mass)
     except ValueError:
                 print("please provide all number posible.")
+
+@app.route('/gePage', methods=['post'])
+def getge():
+     try:
+        mass = request.form['massInt']
+        height = request.form['heightInt']
+        gravity = request.form['gravityInt']
+        ge = request.form['geInt']
+        mass = float(mass)
+        height = float(height)
+        gravity = float(gravity)
+        ge = float(ge)
+        if mass == 0.0:
+               massbyGE(mass, ge, height, gravity)
+               from functions import massA
+               return render_template("massGEResult.html",
+                                      massA = massA,
+                                      mass = massA,
+                                      gravity = gravity,
+                                      ge = ge,
+                                      height = height)
+        elif height == 0.0:
+                heightByGE(mass, ge, gravity)
+                from functions import heightA
+                return render_template("heightResult.html", heightA = heightA,
+                                       mass = mass,
+                                       ge = ge,
+                                       gravity = gravity)
+          
+     except ValueError:
+          print("please provide all number posible.")
