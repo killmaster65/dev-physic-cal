@@ -17,7 +17,9 @@ def massResult():
 @app.route("/vPage")
 def vPage():
     return render_template("vPage.html")
-
+@app.route('/spResult.html')
+def spResult():
+     return render_template("spResult.html")
 @app.route('/keResult')
 def keResult():
      return render_template("keResult.html")
@@ -39,9 +41,9 @@ def speedPage():
 def disPage():
     return render_template('disPage.html')
 
-@app.route('/speedResult')
-def speedResult():
-    return render_template('speedResult.html')
+@app.route('/timeResult')
+def timeResult():
+    return render_template('timeResult.html')
 
 @app.route('/disResult')
 def disResult():
@@ -60,7 +62,7 @@ def speedForm():
             gettimeByDisSpeed(time, speed, distance)
             from functions import answerTime
             
-            return render_template("speedResult.html", answerTime = answerTime, 
+            return render_template("timeResult.html", answerTime = answerTime, 
                                    time = answerTime,
                                    distance = distance,
                                    speed = speed)
@@ -68,7 +70,7 @@ def speedForm():
 
             getspeedByTimeDis(time, speed, distance)
             from functions import answerSp
-            return render_template("timeResult.html", answerSp = answerSp,
+            return render_template("spResult.html", answerSp = answerSp,
                                    speed = answerSp,
                                    distance = distance,
                                    time = time)
