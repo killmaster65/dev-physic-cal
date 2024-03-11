@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 
 
 from functions import getdisBySpeedTime, getspeedByTimeDis, gettimeByDisSpeed,massByKEV, velocityByKEM, kineticEnergyByMV
-from functions import massbyGE, heightByGE
+from functions import massbyGE, heightByGE, getdisplacement
 
 app = Flask(__name__)
 @app.route('/kePage')
@@ -28,6 +28,10 @@ def keResult():
 def velocityResult():
      return render_template("velocityResult.html")
 
+@app.route('/disPlPage')
+def disPlPage():
+     return render_template("disPlPage.html")
+
 @app.route("/")
 def hello_world():
     return render_template("index.html")
@@ -48,6 +52,22 @@ def timeResult():
 @app.route('/disResult')
 def disResult():
     return render_template('disResult.html')
+
+@app.route('/disPlPage', methods=['post'])
+def displForm():
+     try:
+          final = request.form['finalInt']
+          final = float(final)
+          beginning = request.form['beginInt']
+          beginning = float(beginning)
+          getdisplacement(final, beginning)
+          from functions import displacementA
+          return render_template("disPResult.html",
+                                 final = final,
+                                 beginning = beginning,
+                                 displacementA = displacementA)
+     except ValueError:
+                  print("please provide all number posible.")
 
 @app.route('/speedPage', methods=['post'])
 def speedForm():
