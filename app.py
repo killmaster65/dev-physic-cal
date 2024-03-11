@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 
 
 from functions import getdisBySpeedTime, getspeedByTimeDis, gettimeByDisSpeed,massByKEV, velocityByKEM, kineticEnergyByMV
-from functions import massbyGE, heightByGE
+from functions import massbyGE, heightByGE, getdisplacement
 
 app = Flask(__name__)
 @app.route('/kePage')
@@ -17,7 +17,9 @@ def massResult():
 @app.route("/vPage")
 def vPage():
     return render_template("vPage.html")
-
+@app.route('/spResult.html')
+def spResult():
+     return render_template("spResult.html")
 @app.route('/keResult')
 def keResult():
      return render_template("keResult.html")
@@ -25,6 +27,10 @@ def keResult():
 @app.route('/velocityResult')
 def velocityResult():
      return render_template("velocityResult.html")
+
+@app.route('/disPlPage')
+def disPlPage():
+     return render_template("disPlPage.html")
 
 @app.route("/")
 def hello_world():
@@ -39,13 +45,29 @@ def speedPage():
 def disPage():
     return render_template('disPage.html')
 
-@app.route('/speedResult')
-def speedResult():
-    return render_template('speedResult.html')
+@app.route('/timeResult')
+def timeResult():
+    return render_template('timeResult.html')
 
 @app.route('/disResult')
 def disResult():
     return render_template('disResult.html')
+
+@app.route('/disPlPage', methods=['post'])
+def displForm():
+     try:
+          final = request.form['finalInt']
+          final = float(final)
+          beginning = request.form['beginInt']
+          beginning = float(beginning)
+          getdisplacement(final, beginning)
+          from functions import displacementA
+          return render_template("disPResult.html",
+                                 final = final,
+                                 beginning = beginning,
+                                 displacementA = displacementA)
+     except ValueError:
+                  print("please provide all number posible.")
 
 @app.route('/speedPage', methods=['post'])
 def speedForm():
@@ -60,7 +82,7 @@ def speedForm():
             gettimeByDisSpeed(time, speed, distance)
             from functions import answerTime
             
-            return render_template("speedResult.html", answerTime = answerTime, 
+            return render_template("timeResult.html", answerTime = answerTime, 
                                    time = answerTime,
                                    distance = distance,
                                    speed = speed)
@@ -68,7 +90,7 @@ def speedForm():
 
             getspeedByTimeDis(time, speed, distance)
             from functions import answerSp
-            return render_template("timeResult.html", answerSp = answerSp,
+            return render_template("spResult.html", answerSp = answerSp,
                                    speed = answerSp,
                                    distance = distance,
                                    time = time)
@@ -146,3 +168,7 @@ def getge():
           
      except ValueError:
           print("please provide all number posible.")
+
+if __name__ == "__main__":
+     app.run(host='0.0.0.0')
+     

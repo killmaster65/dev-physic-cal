@@ -32,6 +32,9 @@ def massByKEV(mass,kineticEnergy,velocity):
   global massA
   massA = 2*(kineticEnergy/velocity**2)
 
+def getdisplacement(final, beginning):
+  global displacementA
+  displacementA = final - beginning
 def velocityByKEM(mass,kineticEnergy):
 
   global velocityA
