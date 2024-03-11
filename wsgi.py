@@ -1,4 +1,4 @@
-from dev-physic-cal import app
+from devPhysicCal import app
 
 if __name__ == "__main__":
     app.run()
